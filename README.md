@@ -250,3 +250,92 @@ async function getCategories(req, res) {
  app.listen(8000, err => console.log(err ? err : "Server on :88"));
  ```
 # frontend
+cmd-be pnpm i, max egy pnpm i react-router-dom, ha az nincs
+
+Main.jsx
+```
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import './App.css'
+import { Home } from './Home'
+import { Books } from './Books'
+
+function App() {
+
+  return (
+    <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/books/category/:categId" element={<Books />} />
+              <Route path="/book/search/:searchedWord" element={<Books />} />
+            </Routes>
+        </BrowserRouter>
+  )
+}
+
+export default App
+```
+
+useEffect backend beolvasáshoz:
+```
+useEffect(()=>{
+        async function getKategoriak(){
+            let resp = await fetch(`http://localhost:8000/api/categories`)
+            let json = await resp.json()
+            console.log(json)
+            setKategoria(json)
+        }
+        getKategoriak()
+    },[])
+```
+
+Home.jsx kialakítás csak ha kéne:
+```
+import React from 'react'
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { FaFacebook,FaTwitter, FaInstagram,FaHome, FaLinkedin } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+
+export const Home = () => {
+
+  const [kategoria, setKategoria] = useState([]);
+  const [word, setWord] = useState("");
+
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+        async function getKategoriak(){
+            let resp = await fetch(`http://localhost:8000/api/categories`)
+            let json = await resp.json()
+            console.log(json)
+            setKategoria(json)
+        }
+        getKategoriak()
+    },[])
+
+  return (
+    <div className='főDiv'>
+      <Header/>
+      <div className='kepDiv'>
+        <img src="header.png" className='kep' alt="" />
+      </div>
+      <div className='kozepDiv'>
+        <div className='keresoDiv divdiv'><input type="text" /> <button></button></div>
+        <div className='valamitextDiv divdiv'><p>Döntsd el, mit is olvass ezután?</p>
+        <br />
+        <p>Jó helyen jársz. Milyen műfajokat kedvelsz?</p></div>
+        <div className='idezetDiv divdiv'><p className='szoveg'>Minden egyes könyv egy új világ, amit csak ki kell nyitnod.</p></div>
+      </div>
+      <div className='cardDiv'>
+        {kategoria.map(x=><div key = {x.id} onClick={()=>navigate(`/books/category/${x.id}`)} className='valami'>{x.name}</div>)}
+      </div>
+      
+      
+      <Footer/>
+    </div>
+  )
+}
+
+```
