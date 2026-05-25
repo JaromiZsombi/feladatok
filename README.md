@@ -76,39 +76,9 @@ System.out.printf("%s\n", String.join(", ", madarMagas));
 
 # javafx
 
-Menü, mindenhova kelleni fog, bármi is a feladat, előbb hozz létre egy VBOX-ot, meg ilyen children cuccot (nemtom mire jó tbh)
+Menü, mindenhova kelleni fog, bármi is a feladat
 
-```
-<VBox alignment="CENTER" prefHeight="451.0" prefWidth="543.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.example.diafilmgui.HelloController">
-   <children>
-    </children>
-</VBox>
-```
-
-Aztán most a menü
-```
-    <MenuBar>
-        <menus>
-          <Menu mnemonicParsing="false" text="Fájl">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#onOpenClick" text="Megnyitás">
-                     <accelerator>
-                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                     </accelerator>
-                  </MenuItem>
-                  <MenuItem mnemonicParsing="false" onAction="#onCloseClick" text="Kilépés" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Súgó">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#onAboutClick" text="Névjegy" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-```
-
-Előző feladatból Hello Controllerbe:
+Random Hello Controller biztonság kedvéért feladatból Hello Controllerbe:
 ```
 private class Diafilm {
         public String cim;
