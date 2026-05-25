@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+body {
+    display: flex;
+    justify-content: center;
+}
+.főDiv{
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 1400px;
+    width: 100%;
+}
+.header{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 50px;
+    max-width: 1400px;
+    background-color: rgba(141, 96, 36, 0.733);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    max-width: 1400px;
+    height: 50px;
+    background-color: rgba(141, 96, 36, 0.733);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.homeContainer{
+    width: 100%;
+}
+.home{
+    color: white;
+    font-size: 30px;
+}
+.kepDiv{
+    max-width: 1400px;
+    width: 100vw;
+}
+.kep{
+    max-width: 100%;
+    height: auto;
+}
+.title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.kozepDiv{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.keresoDiv{
+    padding: 10px;
+}
+
+.divdiv{
+    width: 100%;
+}
+
+.idezetDiv{
+    display: flex;
+    justify-content: end;
+    max-width: 100%;
+}
+.szoveg{
+    color: red;
+    border-left: 5px solid red;
+    padding: 5px;
+    text-wrap: wrap;
+    max-width: 200px;
+}
+
+.cardDiv{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    height: 40%;
+    align-items: end;
+    margin-top: 30px;
+}
