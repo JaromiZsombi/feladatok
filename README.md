@@ -76,8 +76,6 @@ System.out.printf("%s\n", String.join(", ", madarMagas));
 
 # javafx
 
-https://cdn.discordapp.com/attachments/1199020276961267722/1508564252900724827/image.png?ex=6a15ff71&is=6a14adf1&hm=0d4add16252f403dadffee200ee463aca65b589e37f2c9c5f7cfff581dd3be6f&
-
 Menü, mindenhova kelleni fog, bármi is a feladat
 
 Random Hello Controller biztonság kedvéért feladatból Hello Controllerbe:
@@ -106,6 +104,10 @@ toString ha valamelyik adatot átkellene írni valahogy:
         public String toString() {
             return String.format("%s (%d, %d kocka, %s)", cim, ev, kocka, szines.equals("I")?"színes":"fekete-fehér");
         }
+```
+Distinct:
+```
+randomLV.setItems(fxCollection.observableList(valamiLista.stream().map(valami->valami.getName().split(";")[0].Distinct().toList())))
 ```
 
 Beolvasás:
